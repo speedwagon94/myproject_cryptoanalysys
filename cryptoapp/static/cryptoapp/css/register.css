@@ -1,0 +1,12 @@
+
+.registration-form {
+    margin-top: -80px;
+}
+
+.error {
+    color: #ffffff;
+    margin-left: 300px;
+    white-space: nowrap;
+    top: -200px;
+    position: relative;
+}

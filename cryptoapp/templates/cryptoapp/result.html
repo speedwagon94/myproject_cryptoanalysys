@@ -1,0 +1,23 @@
+{% extends "cryptoapp/base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результат анализа</title>
+    {% block styles %}
+        {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/result.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/button.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+        <div class="result">
+            <h2>Результат анализа:</h2>
+            <p>{{ analysis_result }}</p>
+            <a href="{% url 'analyze_crypto' %}" class="bbotre">Назад</a>
+        </div>
+    {% endblock %}
+</body>
+</html>

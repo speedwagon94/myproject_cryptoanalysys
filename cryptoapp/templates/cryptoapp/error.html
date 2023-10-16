@@ -1,0 +1,23 @@
+{% extends "cryptoapp/base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ошибка</title>
+    {% block styles %}
+        {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/error.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/button.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div class="error">
+        <h1>Произошла ошибка:</h1>
+        <p>Неверная пара. Пример: BTCUSDT</p>
+        <a href="{% url 'analyze_crypto' %}" class="bbotre">На главную</a>
+    </div>
+    {% endblock %}
+</body>
+</html>

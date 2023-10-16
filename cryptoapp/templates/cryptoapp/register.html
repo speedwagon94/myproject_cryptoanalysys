@@ -1,0 +1,41 @@
+{% extends "cryptoapp/base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация</title>
+    {% block styles %}
+        {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/login.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/register.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/button.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div class="login">
+        <div class="form">
+            <h2>Welcome</h2>
+            <form method="post" class="registration-form">
+                {% csrf_token %}
+                <div class="form">
+                    <input type="text" placeholder="Username" name="username" class="form-input">
+                    <input type="email" placeholder="Email" name="email" class="form-input">
+                    <input type="password" placeholder="Password" name="password1" class="form-input">
+                    <input type="password" placeholder="Confirm Password" name="password2" class="form-input">
+                    <input type="submit" value="Sign In" class="submit">
+
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <p class="error">{{ error }}</p>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </form>
+            <a href="{% url 'analyze_crypto' %}" class="bbotre">На главную</a>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

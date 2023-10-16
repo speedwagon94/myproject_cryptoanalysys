@@ -1,0 +1,82 @@
+
+.analysis-form {
+    text-align: center;
+    margin: -500px auto 80px auto;
+    border-radius: 20px;
+    color: #ffffff;
+    z-index: 2;
+}
+
+.news-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: left;
+    margin-top: 20px;
+    z-index: 2;
+}
+
+
+.news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+    margin-top: 20px;
+    z-index: 2;
+}
+
+.auth-link {
+    margin-right: 20px;
+    color: #ffffff;
+}
+
+#user-actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+}
+.cryptoanalyzer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.form-select,
+.form-input {
+    margin-bottom: 10px;
+    border: 1px solid #ffffff;
+}
+
+.news-item {
+  margin-bottom: 20px;
+}
+
+.news-item-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.news-item-content {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.news-item-date {
+  font-size: 14px;
+  color: #999;
+}
+

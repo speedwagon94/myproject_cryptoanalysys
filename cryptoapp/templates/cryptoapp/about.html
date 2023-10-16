@@ -1,0 +1,27 @@
+{% extends "cryptoapp/base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>О нас</title>
+    {% block styles %}
+        {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/about.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/button.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div class="about">
+        <h1>О нас</h1>
+        <p>Добро пожаловать на наш сайт! Мы - команда профессионалов, занимающаяся анализом криптовалют.</p>
+        <a href="{% url 'analyze_crypto' %}" class="bbotre">На главную</a>
+    </div>
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+</body>
+</html>
+

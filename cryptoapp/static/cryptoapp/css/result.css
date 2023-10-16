@@ -1,0 +1,10 @@
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    align-items: center;
+    min-height: 50vh;
+    margin: -400px auto 80px auto;
+}

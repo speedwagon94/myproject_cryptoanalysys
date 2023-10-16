@@ -1,0 +1,67 @@
+{% extends "cryptoapp/base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Анализ криптовалюты</title>
+    {% block styles %}
+        {{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/index.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'cryptoapp/css/button.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+        <div id="user-actions" class="top-right">
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="auth-link">Выход</a>
+            {% else %}
+            <a href="{% url 'register' %}" class="auth-link">Зарегистрироваться</a>
+            <a href="{% url 'login' %}" class="auth-link">Войти</a>
+            {% endif %}
+        </div>
+
+    <h2 class="main-title">Введите пару монет и интервал времени для анализа:</h2>
+
+    <form method="post" class="analysis-form">
+        {% csrf_token %}
+        <label for="symbol" class="form-label">Пара монет:</label>
+        <input type="text" id="symbol" name="symbol" required class="form-input" placeholder="Формат: BTCUSDT"><br>
+
+        <label for="interval" class="form-label">Интервал времени:</label>
+        <select id="interval" name="interval" required class="form-select">
+            <option value="1m">1 минута</option>
+            <option value="3m">3 минуты</option>
+            <option value="5m">5 минут</option>
+            <option value="15m">15 минут</option>
+            <option value="30m">30 минут</option>
+            <option value="1h">1 час</option>
+            <option value="2h">2 часа</option>
+            <option value="4h">4 часа</option>
+            <option value="6h">6 часов</option>
+            <option value="8h">8 часов</option>
+            <option value="12h">12 часов</option>
+            <option value="1d">1 день</option>
+            <option value="3d">3 дня</option>
+            <option value="1w">1 неделя</option>
+            <option value="1m">1 месяц</option>
+        </select><br>
+        <button class="glow-on-hover" type="input" id="analyze-button">Анализировать</button>
+    </form>
+
+    <h2 class="news-title">Последние новости:</h2>
+    <ul class="news-list">
+        {% for news_item in news_list %}
+        <li class="news-item">
+            <h3 class="news-item-title">{{ news_item.title }}</h3>
+            <p class="news-item-content">{{ news_item.content }}</p>
+            <p class="news-item-date">Дата публикации: {{ news_item.pub_date|date:"F d, Y" }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+    {% endblock %}
+</body>
+</html>
