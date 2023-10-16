@@ -41,7 +41,7 @@ class CryptoAnalyzer:
                 return render(request, 'cryptoapp/error.html')
 
         current_date = datetime.now().date()
-        two_days_ago = current_date - timedelta(days=10)
+        two_days_ago = current_date - timedelta(days=2)
         news_list = News.objects.filter(pub_date__gte=two_days_ago, pub_date__lte=current_date)
         return render(request, 'cryptoapp/index.html', {'news_list': news_list})
 
